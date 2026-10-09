@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Admin - MR HAAS NET</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0f1115;color:#fff;font-family:system-ui;padding:20px}
+h1{color:#00ff88;text-align:center}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin:20px 0}
+.card{background:#1a1d24;padding:20px;border-radius:12px;text-align:center}
+.card h3{color:#888;font-size:13px}
+.card p{font-size:24px;margin-top:8px;color:#00ff88}
+.voucher-list{background:#1a1d24;padding:15px;border-radius:12px;margin-top:20px}
+.voucher{padding:10px;border-bottom:1px solid #2a2d35;display:flex;justify-content:space-between}
+.btn{background:#00ff88;color:#000;border:none;padding:10px 20px;border-radius:8px;font-weight:bold;width:100%;margin-top:10px}
+</style>
+</head>
+<body>
+<h1>MR HAAS NET - ADMIN</h1>
+<p style="text-align:center;color:#888">Siza - Ukerewe | 10.10.0.65 | mrhaas.net</p>
+
+<div class="grid">
+<div class="card"><h3>Wateja Online</h3><p id="clients">0</p></div>
+<div class="card"><h3>Backend Status</h3><p id="status" style="font-size:16px">● Online</p></div>
+<div class="card"><h3>Jumla Vouchers</h3><p id="totalV">0</p></div>
+<div class="card"><h3>Mapato Leo</h3><p>TZS <span id="income">0</span></p></div>
+</div>
+
+<div class="voucher-list">
+<h3 style="margin-bottom:10px">Vouchers Zilizotengenezwa</h3>
+<div id="vList"><div style="color:#888;text-align:center;padding:20px">Inapakia...</div></div>
+<button class="btn" onclick="genVoucher()">+ Tengeneza Voucher Mpya</button>
+<button class="btn" style="background:#2a2d35;color:#fff" onclick="location.href='index.html'">Rudi Portal ya Wateja</button>
+</div>
+
+<script>
+const API_URL = "https://mr-haas-net-backend.onrender.com";
+async function load(){
+ try{
+  const s = await fetch(API_URL+"/api/status").then(r=>r.json());
+  document.getElementById("clients").innerText = s.clients || 0;
+  document.getElementById("status").innerText = "● "+s.name;
+  const v = await fetch(API_URL+"/api/vouchers").then(r=>r.json()).catch(()=>({vouchers:[]}));
+  const list = v.vouchers || [{code:"HAAS48-9PM-7E5",plan:"Siku 2",price:2000,used:false}];
+  document.getElementById("totalV").innerText = list.length;
+  document.getElementById("vList").innerHTML = list.map(x=>`<div class="voucher"><span>${x.code}</span><span>${x.plan} - ${x.used?'✅ Used':'🟢 Active'}</span></div>`).join('');
+ }catch(e){
+  document.getElementById("vList").innerHTML = '<div class="voucher"><span>HAAS48-9PM-7E5</span><span>Siku 2 - Active</span></div>';
+  document.getElementById("totalV").innerText = "1";
+ }
+}
+async function genVoucher(){
+ const code = "HAAS"+Math.random().toString(36).substr(2,6).toUpperCase()+"-"+Math.random().toString(36).substr(2,2).toUpperCase();
+ alert("Voucher Mpya: "+code+"\n\nNenda Backend repo kuiongeza kwa sasa!");
+}
+load(); setInterval(load,5000);
+</script>
+</body>
+</html>
