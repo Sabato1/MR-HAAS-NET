@@ -1,0 +1,16 @@
+{
+  "name": "mr-haas-net",
+  "version": "10.0.4",
+  "description": "Billing system - MR HAAS CLOUD V10 Auto-Update",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "pg": "^8.11.3",
+    "bcrypt": "^5.1.0",
+    "jsonwebtoken": "^9.0.2"
+  }
+}
