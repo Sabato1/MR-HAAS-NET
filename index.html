@@ -24,117 +24,236 @@
 </style>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>MR HAAS CLOUD V10 - SUPER ADMIN</title>
+<title>MR HAAS CLOUD V11.1 - ZERO STATE - CLEAN</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:#0a0e12;color:#e6f1ff;font-family:'Courier New',monospace;min-height:100vh;padding:0}
-.header{background:#0f1115;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #1a1f29;position:sticky;top:0;z-index:10}
-.logo{display:flex;align-items:center;gap:12px}
-.logo-icon{width:48px;height:48px;background:#00ff88;border-radius:12px;display:flex;align-items:center;justify-content:center;font-weight:bold;color:#000;font-size:22px}
-.logo-text h1{font-size:18px;color:#fff;letter-spacing:1px}
-.logo-text p{font-size:11px;color:#8b949e;letter-spacing:2px}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:16px}
-.card{background:#131720;border:1px solid #1f2633;border-radius:16px;padding:16px;position:relative}
-.card .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
-.icon{font-size:20px}
-.badge{font-size:10px;padding:4px 8px;border-radius:6px;background:#1a2332;color:#8b949e}
-.badge.live{color:#00ff88;background:#0d2818}
-.card h2{font-size:28px;color:#fff;margin-bottom:4px}
-.card p{font-size:11px;color:#8b949e;letter-spacing:1px;text-transform:uppercase}
-.card.tzs .badge{background:#1a1a2e;color:#a78bfa}
-.platform-card{margin:16px;background:#131720;border:1px solid #00ff88;border-radius:20px;padding:20px}
-.platform-card .title{display:flex;gap:12px;align-items:flex-start;margin-bottom:16px}
-.rocket{width:48px;height:48px;background:#00ff88;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:24px}
-.platform-card h3{font-size:18px;color:#fff}
-.platform-card small{font-size:11px;color:#8b949e;display:block;margin-top:4px}
-.live-line{background:#0d2818;border:1px solid #00ff88;color:#00ff88;padding:8px 14px;border-radius:20px;font-size:12px;display:inline-flex;gap:8px;align-items:center;margin-bottom:16px}
-.version-box{background:#0f141f;border-radius:12px;padding:16px;margin-top:8px}
-.version-box label{font-size:10px;color:#8b949e;letter-spacing:1px}
-.version-box .ver{font-size:28px;color:#fff;font-weight:bold;margin:6px 0}
-.btn{width:100%;background:#00ff88;color:#000;border:none;padding:14px;border-radius:12px;font-weight:bold;font-size:13px;letter-spacing:1px;margin-top:12px;cursor:pointer}
-.btn:active{transform:scale(0.98)}
-.tenants{padding:16px}
-.tenants h4{font-size:12px;color:#8b949e;letter-spacing:2px;margin-bottom:12px}
-.tenant{background:#131720;border:1px solid #1f2633;border-radius:12px;padding:14px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center}
-.tenant-name{color:#fff;font-size:14px;font-weight:bold}
-.tenant-meta{font-size:11px;color:#8b949e;margin-top:4px}
-.tag{font-size:10px;padding:3px 8px;border-radius:6px;background:#0d2818;color:#00ff88}
-.login-box{max-width:400px;margin:40px auto;background:#131720;border:1px solid #1f2633;border-radius:20px;padding:24px}
-.login-box h2{color:#fff;text-align:center;margin-bottom:20px}
-.input{width:100%;background:#0a0e12;border:1px solid #1f2633;color:#fff;padding:12px;border-radius:10px;margin-bottom:12px;font-family:monospace}
+body{background:#0b1220;color:#e2e8f0;font-family:Inter,system-ui,sans-serif;min-height:100vh}
+.header{position:sticky;top:0;z-index:20;background:#0f172a;border-bottom:1px solid #1e293b;padding:12px 16px;display:flex;justify-content:space-between;align-items:center}
+.header-left{display:flex;align-items:center;gap:12px}
+.menu-btn{width:36px;height:36px;background:#1e293b;border:none;border-radius:8px;color:#fff;font-size:18px;cursor:pointer}
+.brand{font-weight:800;color:#fff;font-size:15px}
+.brand-sub{font-size:10px;color:#94a3b8}
+.header-right{display:flex;align-items:center;gap:8px}
+.badge{font-size:10px;padding:4px 10px;border-radius:20px;font-weight:600}
+.badge.active{background:#0d2818;color:#22c55e;border:1px solid #22c55e}
+.badge.empty{background:#1e293b;color:#64748b;border:1px solid #334155}
+.icon-btn{width:32px;height:32px;background:#1e293b;border:none;border-radius:50%;color:#94a3b8;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.page{padding:16px;padding-bottom:80px}
+.welcome{margin-bottom:18px}
+.welcome h1{font-size:20px;color:#fff;font-weight:700}
+.welcome p{font-size:12px;color:#94a3b8;margin-top:2px}
+.card{background:#151f32;border:1px solid #1e293b;border-radius:16px;padding:16px;margin-bottom:12px}
+.card-title{font-size:11px;color:#94a3b8;letter-spacing:1px;text-transform:uppercase;margin-bottom:12px;display:flex;justify-content:space-between;align-items:center}
+.network-grid{display:grid;gap:10px}
+.net-item{background:#0f172a;border:1px solid #1e293b;border-radius:12px;padding:14px;display:flex;justify-content:space-between;align-items:center}
+.net-left{display:flex;gap:12px;align-items:center}
+.net-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;background:#1e293b;color:#64748b}
+.net-label{font-size:11px;color:#94a3b8}
+.net-value{font-size:22px;color:#fff;font-weight:700;margin-top:2px}
+.net-value.zero{color:#64748b}
+.revenue-grid{display:grid;gap:8px}
+.rev-item{border-radius:12px;padding:14px;display:flex;justify-content:space-between;align-items:center;background:#0f172a;border:1px solid #1e293b}
+.rev-label{font-size:11px;color:#94a3b8}
+.rev-value{font-size:18px;color:#64748b;font-weight:700;margin-top:2px}
+.empty-state{text-align:center;padding:32px 16px;color:#64748b}
+.empty-state .icon{font-size:40px;margin-bottom:12px}
+.empty-state h3{color:#94a3b8;font-size:14px;margin-bottom:6px}
+.empty-state p{font-size:11px;line-height:1.5;margin-bottom:16px}
+.btn{width:100%;background:#22c55e;color:#000;border:none;padding:13px;border-radius:12px;font-weight:700;font-size:13px;cursor:pointer}
+.btn-outline{background:transparent;color:#94a3b8;border:1px solid #334155;padding:13px;border-radius:12px;font-weight:600;font-size:13px;cursor:pointer;width:100%}
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:40}
+.drawer{position:fixed;top:0;left:0;bottom:0;width:280px;background:#0f172a;border-right:1px solid #1e293b;z-index:50;transform:translateX(-100%);transition:transform 0.3s ease;overflow-y:auto}
+.drawer.open{transform:translateX(0)}
+.drawer-header{padding:20px;border-bottom:1px solid #1e293b}
+.drawer-logo{font-weight:800;color:#fff;font-size:18px;display:flex;align-items:center;gap:10px}
+.drawer-logo i{width:32px;height:32px;background:#22c55e;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#000;font-style:normal}
+.drawer-section{padding:16px}
+.drawer-section h5{font-size:10px;color:#64748b;letter-spacing:1.5px;margin-bottom:10px}
+.menu-item{display:flex;align-items:center;gap:12px;padding:11px 12px;border-radius:10px;cursor:pointer;color:#94a3b8;font-size:13px;margin-bottom:2px}
+.menu-item:hover{background:#1e293b;color:#fff}
+.menu-item.active{background:#1e293b;color:#fff;border:1px solid #22c55e}
+.menu-item .mi{font-size:16px;width:20px;text-align:center}
 .hidden{display:none}
+.input{width:100%;background:#0f172a;border:1px solid #1e293b;color:#fff;padding:12px;border-radius:10px;margin-bottom:10px;font-size:13px}
+.login-box{max-width:380px;margin:60px auto;background:#151f32;border:1px solid #1e293b;border-radius:20px;padding:24px}
 </style>
 </head>
 <body>
+
 <div id="loginPage">
-<div class="header"><div class="logo"><div class="logo-icon">H</div><div class="logo-text"><h1>MR HAAS CLOUD</h1><p>SUPER ADMIN • V10.0.4</p></div></div></div>
+<div class="header"><div class="header-left"><div class="brand">MR HAAS NET</div></div></div>
 <div class="login-box">
-<h2>Ingia Super Admin</h2>
+<div style="text-align:center;margin-bottom:20px"><div style="width:60px;height:60px;background:#22c55e;border-radius:16px;display:flex;align-items:center;justify-content:center;margin:0 auto;color:#000;font-weight:800;font-size:28px">H</div><h2 style="color:#fff;margin-top:12px">MR HAAS CLOUD</h2><p style="color:#64748b;font-size:11px;margin-top:4px">V11.1 • ZERO STATE • CLEAN START</p></div>
 <input id="email" class="input" value="sabato@mrhaas.net" placeholder="Email">
 <input id="pass" class="input" type="password" value="admin123" placeholder="Password">
-<button class="btn" onclick="login()">INGIA DASHBOARD →</button>
-<p style="text-align:center;margin-top:16px;font-size:11px;color:#8b949e">MR HAAS NET V10 • SIZA UKEREWE ONLY</p>
+<button class="btn" onclick="login()">INGIA →</button>
+<div style="margin-top:16px;padding:12px;background:#0f172a;border-radius:10px;font-size:10px;color:#64748b;line-height:1.6">
+<strong style="color:#22c55e">SUPER ADMIN:</strong> sabato@mrhaas.net / admin123<br>
+<strong style="color:#94a3b8">MFUMO MPYA: Hakuna device, hakuna user, hakuna mauzo - Safi!</strong>
+</div>
 </div>
 </div>
 
-<div id="dashPage" class="hidden">
+<div id="appPage" class="hidden">
 <div class="header">
-<div class="logo"><div class="logo-icon">H</div><div class="logo-text"><h1>MR HAAS CLOUD</h1><p>SUPER ADMIN • V10.0.4</p></div></div>
-<div style="display:flex;gap:8px"><div style="width:36px;height:36px;background:#131720;border-radius:50%;display:flex;align-items:center;justify-content:center">→]</div><div style="width:36px;height:36px;background:#131720;border-radius:50%;display:flex;align-items:center;justify-content:center">☰</div></div>
+<div class="header-left">
+<button class="menu-btn" onclick="openMenu()">☰</button>
+<div><div class="brand" id="topBrand">MR HAAS CLOUD</div><div class="brand-sub" id="topSub">Mfumo mpya - Hakuna device bado</div></div>
 </div>
-
-<div class="grid">
-<div class="card"><div class="top"><span class="icon">👥</span><span class="badge live">LIVE</span></div><h2>1</h2><p>TOTAL TENANTS</p></div>
-<div class="card"><div class="top"><span class="icon" style="color:#3b82f6">📶</span><span class="badge live">LIVE</span></div><h2>4</h2><p>DEVICES</p></div>
-<div class="card"><div class="top"><span class="icon" style="color:#a78bfa">📱</span><span class="badge live">LIVE</span></div><h2>89</h2><p>USERS</p></div>
-<div class="card"><div class="top"><span class="icon" style="color:#f59e0b">🗄️</span><span class="badge live">LIVE</span></div><h2>2GB</h2><p>DATA</p></div>
-<div class="card tzs"><div class="top"><span class="icon" style="color:#00ff88">📈</span><span class="badge">TZS</span></div><h2>124k</h2><p>MRR TODAY</p></div>
-<div class="card tzs"><div class="top"><span class="icon" style="color:#a78bfa">📊</span><span class="badge">TZS</span></div><h2>856k</h2><p>WEEK</p></div>
-<div class="card tzs"><div class="top"><span class="icon" style="color:#3b82f6">📊</span><span class="badge">TZS</span></div><h2>2.48M</h2><p>MONTH</p></div>
-<div class="card"><div class="top"><span class="icon" style="color:#00ff88">⚡</span><span class="badge" style="background:#0f1115;color:#8b949e">Live</span></div><h2>V10.0.4</h2><p>PLATFORM</p></div>
-</div>
-
-<div class="platform-card">
-<div class="title"><div class="rocket">🚀</div><div><h3>Platform Auto-Update Control</h3><small>Super Admin publishes → All tenants auto-update bila confirmation</small></div></div>
-<div class="live-line"><span style="width:8px;height:8px;background:#00ff88;border-radius:50%;display:inline-block"></span> LIVE • 1/1 updated</div>
-<div class="version-box">
-<label>CURRENT VERSION</label>
-<div class="ver">V10.0.4</div>
-<small style="color:#8b949e">V10 AUTO-UPDATE SYSTEM • SIZA UKEREWE ONLY</small>
-<div style="margin-top:12px;font-size:11px;color:#8b949e;line-height:1.6">
-✅ Portal Templates: MR HAAS dark green neon 10.10.0.65<br>
-✅ MikroTik Auto: walled-garden mr-haas-net-backend, ip-binding 94:7B:AE:8A:56:24<br>
-✅ Branding: green #00ff88 dark #0f1115<br>
-✅ Packages: Siku 1 (1500), TELEZA (1000), Wiki 1 (7000)<br>
-✅ Payment: Tigo Lipa 5151489 Yas Mixx blue M-Pesa<br>
-✅ Device Models: RB750Gr3 hAP ax3 Omada EAP225 Grandstream GWN7605
-</div>
-<button class="btn" onclick="alert('✅ V10.0.4 imetumwa kwa SIZA UKEREWE! Live!')">PUBLISH UPDATE TO SIZA</button>
+<div class="header-right">
+<span class="badge empty">● Setup required</span>
 </div>
 </div>
 
-<div class="tenants">
-<h4>TENANTS (1) - LIVE</h4>
-<div class="tenant" onclick="alert('SIZA UKEREWE Dashboard - 4 Devices, 89 Users, Gateway 10.10.0.65')">
-<div><div class="tenant-name">SIZA UKEREWE</div><div class="tenant-meta">Diamond • 4 dev • 89 users • 10.10.0.65 • Mwanza</div></div>
-<div><span class="tag">ACTIVE</span></div>
+<div id="overviewPage" class="page">
+<div class="welcome">
+<h1>Karibu, <span id="welcomeName">SABATO</span> 👋</h1>
+<p>Mfumo wako ni mpya - Anza kwa kuongeza device ya kwanza!</p>
 </div>
-<p style="text-align:center;margin-top:20px;font-size:10px;color:#8b949e;letter-spacing:1px">MR HAAS NET V10.0.4 • AUTO-UPDATE ENABLED • BUILT FOR SIZA</p>
+
+<div class="card">
+<div class="card-title"><span>Network</span><span style="display:flex;align-items:center;color:#64748b;font-size:10px">Hakuna device</span></div>
+<div class="network-grid">
+<div class="net-item">
+<div class="net-left"><div class="net-icon">📡</div><div><div class="net-label">Devices online</div><div class="net-value zero">0 / 0</div></div></div>
+<div><span class="badge empty">No device</span></div>
 </div>
+<div class="net-item">
+<div class="net-left"><div class="net-icon">👥</div><div><div class="net-label">Users online now</div><div class="net-value zero">0</div></div></div>
+</div>
+<div class="net-item">
+<div class="net-left"><div class="net-icon">⬇️</div><div><div class="net-label">Data in use now</div><div class="net-value zero">0 B</div></div></div>
+</div>
+</div>
+<div class="empty-state" style="padding:16px">
+<div class="icon">📡</div>
+<h3>Hakuna device iliyounganishwa</h3>
+<p>Mfumo wako bado haujaunganishwa na router yoyote.<br>Ongeza MikroTik au Omada EAP ya kwanza.</p>
+<button class="btn" onclick="showPage('addDevices')">+ Ongeza Device ya Kwanza</button>
+</div>
+</div>
+
+<div class="card">
+<div class="card-title"><span>Revenue</span><span style="font-size:10px;color:#64748b">TZS</span></div>
+<div class="revenue-grid">
+<div class="rev-item"><div><div class="rev-label">Today</div><div class="rev-value">0</div></div></div>
+<div class="rev-item"><div><div class="rev-label">This week</div><div class="rev-value">0</div></div></div>
+<div class="rev-item"><div><div class="rev-label">This month</div><div class="rev-value">0</div></div></div>
+</div>
+<div class="empty-state" style="padding:16px">
+<div class="icon">💰</div>
+<h3>Hakuna mauzo bado</h3>
+<p>Hakuna voucher iliyouzwa. Mauzo yataonekana hapa baada ya mteja kununua voucher ya kwanza kupitia Tigo Lipa.</p>
+</div>
+</div>
+
+<div class="card">
+<div class="card-title"><span>Recent activity</span></div>
+<div class="empty-state">
+<div class="icon">📝</div>
+<h3>Hakuna shughuli bado</h3>
+<p>Mfumo bado haujaanza kutumika.<br>Shughuli za voucher zitajaa hapa baada ya kuanza.</p>
+</div>
+</div>
+</div>
+
+<div id="addDevicesPage" class="page hidden">
+<h2 style="color:#fff;font-size:18px;margin-bottom:4px">Ongeza Device ya Kwanza</h2>
+<p style="color:#64748b;font-size:12px;margin-bottom:16px">Chagua aina ya device yako na uunganishe - Kama UpesiLipa</p>
+
+<div class="card">
+<h3 style="color:#fff;font-size:14px;margin-bottom:4px">1. Una device gani?</h3>
+<p style="color:#64748b;font-size:11px;margin-bottom:16px">Chagua brand ya router / access point yako</p>
+
+<button class="btn" style="background:#0f172a;color:#fff;border:1px solid #1e293b;text-align:left;padding:14px;display:flex;justify-content:space-between;align-items:center;margin-bottom:8px" onclick="alert('MikroTik RB750Gr3\n\nUtapata command:\n/ip hotspot walled-garden add dst-host=mr-haas-net-backend.onrender.com\n/radius add address=...')">
+<div><div style="font-weight:700">MikroTik</div><div style="font-size:10px;color:#64748b">RB750Gr3, hAP, RB4011 - Inayopendekezwa kwa SIZA</div></div><span>→</span>
+</button>
+
+<button class="btn" style="background:#0f172a;color:#fff;border:1px solid #1e293b;text-align:left;padding:14px;display:flex;justify-content:space-between;align-items:center;margin-bottom:8px" onclick="alert('Omada EAP - Omada Controller\n\nAdopt device kwenye Omada Cloud')">
+<div><div style="font-weight:700">TP-Link Omada EAP</div><div style="font-size:10px;color:#64748b">EAP225, EAP245 - Access Point</div></div><span>→</span>
+</button>
+
+<button class="btn" style="background:#0f172a;color:#fff;border:1px solid #1e293b;text-align:left;padding:14px;display:flex;justify-content:space-between;align-items:center;margin-bottom:8px" onclick="alert('Cudy AP1300\n\nInstructions kama UpesiLipa')">
+<div><div style="font-weight:700">Cudy</div><div style="font-size:10px;color:#64748b">AP1300, AP3000 - Budget AP</div></div><span>→</span>
+</button>
+
+<button class="btn" style="background:#0f172a;color:#fff;border:1px solid #1e293b;text-align:left;padding:14px;display:flex;justify-content:space-between;align-items:center" onclick="alert('Grandstream, Ruijie, Ruckus, OpenWrt - Zote zinasaidiwa')">
+<div><div style="font-weight:700">Nyingine - Grandstream, Ruijie, Ruckus, OpenWrt</div><div style="font-size:10px;color:#64748b">Zote zinasaidiwa kama UpesiLipa</div></div><span>→</span>
+</button>
+</div>
+
+<div class="card">
+<h3 style="color:#fff;font-size:13px">Jinsi ya kuunganisha MikroTik (SIZA):</h3>
+<div style="margin-top:12px;background:#0b1220;border-radius:10px;padding:12px;font-size:11px;color:#94a3b8;line-height:1.7;font-family:monospace">
+/ip hotspot walled-garden<br>
+add dst-host=mr-haas-net-backend.onrender.com<br><br>
+/radius add address=159.223.45.67 secret=MRHAAS123 service=hotspot<br><br>
+/ip hotspot profile set hsprof1 use-radius=yes
+</div>
+<button class="btn" style="margin-top:12px" onclick="alert('Command ime-copy! Ingia kwenye MikroTik yako na paste')">📋 Copy Command</button>
+</div>
+</div>
+
+<div id="otherPage" class="page hidden">
+<div class="empty-state" style="padding:60px 16px">
+<div class="icon">🚧</div>
+<h3 id="otherTitle">Bado haijawekwa</h3>
+<p id="otherDesc">Page hii itaongezwa baada ya kuongeza device ya kwanza.<br>Kama UpesiLipa - Packages, Vouchers, Sales, etc.</p>
+<button class="btn-outline" onclick="showPage('overview')">Rudi Overview</button>
+</div>
+</div>
+
+</div>
+
+<div id="overlay" class="overlay hidden" onclick="closeMenu()"></div>
+<div id="drawer" class="drawer">
+<div class="drawer-header"><div class="drawer-logo"><i>H</i><div><div>MR HAAS NET</div><div style="font-size:10px;color:#64748b;font-weight:400">V11.1 ZERO STATE</div></div></div></div>
+<div class="drawer-section">
+<div class="menu-item active" onclick="showPage('overview')"><span class="mi">⊞</span> Overview</div>
+<div class="menu-item" onclick="showPage('addDevices')"><span class="mi">+</span> Add Devices</div>
+<div class="menu-item" onclick="showOther('My sites')"><span class="mi">◎</span> My sites <span style="margin-left:auto;font-size:9px;background:#1e293b;padding:2px 6px;border-radius:10px">0</span></div>
+<div class="menu-item" onclick="showOther('Packages')"><span class="mi">📦</span> Packages <span style="margin-left:auto;font-size:9px;background:#1e293b;padding:2px 6px;border-radius:10px">0</span></div>
+<div class="menu-item" onclick="showOther('Customers')"><span class="mi">👤</span> Customers <span style="margin-left:auto;font-size:9px;background:#1e293b;padding:2px 6px;border-radius:10px">0</span></div>
+<div class="menu-item" onclick="showOther('Vouchers')"><span class="mi">🎫</span> Vouchers <span style="margin-left:auto;font-size:9px;background:#1e293b;padding:2px 6px;border-radius:10px">0</span></div>
+<div class="menu-item" onclick="showOther('Sales')"><span class="mi">💰</span> Sales <span style="margin-left:auto;font-size:9px;background:#1e293b;padding:2px 6px;border-radius:10px">0 TZS</span></div>
+<div class="menu-item" onclick="showOther('Reports')"><span class="mi">📊</span> Reports</div>
+<div class="menu-item" onclick="showOther('Portal branding')"><span class="mi">🎨</span> Portal branding</div>
+</div>
+<div class="drawer-section">
+<h5>ACCOUNT</h5>
+<div class="menu-item" onclick="showOther('Subscription')"><span class="mi">⭐</span> Subscription</div>
+<div class="menu-item" onclick="showOther('Payment settings')"><span class="mi">💳</span> Payment settings</div>
+<div class="menu-item" onclick="showOther('Support')"><span class="mi">💬</span> Support</div>
+<div class="menu-item" onclick="showOther('Settings')"><span class="mi">⚙️</span> Settings</div>
+</div>
+<div class="drawer-section">
+<div class="menu-item" onclick="logout()"><span class="mi">🚪</span> Log out</div>
+</div>
+<div style="padding:16px;text-align:center;font-size:9px;color:#334155">MR HAAS NET V11.1<br>ZERO STATE • CLEAN START 🔥</div>
 </div>
 
 <script>
-function login(){
- const e=document.getElementById('email').value;
- const p=document.getElementById('pass').value;
- if(e==='sabato@mrhaas.net' && p==='admin123'){
-   document.getElementById('loginPage').classList.add('hidden');
-   document.getElementById('dashPage').classList.remove('hidden');
-   localStorage.setItem('mrhaas_tenants',JSON.stringify([{id:'siza',name:'SIZA UKEREWE'}]));
- } else alert('Email au Password si sahihi! Tumia sabato@mrhaas.net / admin123');
+function openMenu(){document.getElementById('drawer').classList.add('open');document.getElementById('overlay').classList.remove('hidden');}
+function closeMenu(){document.getElementById('drawer').classList.remove('open');document.getElementById('overlay').classList.add('hidden');}
+function showPage(page){
+ document.querySelectorAll('.page').forEach(p=>p.classList.add('hidden'));
+ document.querySelectorAll('.menu-item').forEach(m=>m.classList.remove('active'));
+ document.getElementById(page+'Page').classList.remove('hidden');
+ event.currentTarget.classList.add('active');
+ closeMenu();
 }
-// Auto-login if already
-if(localStorage.getItem('mrhaas_auto')==='1'){document.getElementById('loginPage').classList.add('hidden');document.getElementById('dashPage').classList.remove('hidden');}
+function showOther(name){
+ document.querySelectorAll('.page').forEach(p=>p.classList.add('hidden'));
+ document.getElementById('otherPage').classList.remove('hidden');
+ document.getElementById('otherTitle').innerText=name;
+ document.getElementById('otherDesc').innerText=name+' - Bado hakuna data kwa sababu mfumo bado haujaunganishwa na device yoyote.\n\nOngeza device ya kwanza kwanza, kisha '+name+' itajaa na data.';
+ closeMenu();
+}
+function login(){
+ document.getElementById('loginPage').classList.add('hidden');
+ document.getElementById('appPage').classList.remove('hidden');
+}
+function logout(){document.getElementById('appPage').classList.add('hidden');document.getElementById('loginPage').classList.remove('hidden');closeMenu();}
 </script>
 <script>(function(){var loc=location.href.replace(/#.*$/,"");var ATTR_NAMES=["data-product-id","data-productid","data-product_id","product-id","productid","product_id","data-source-entity-id","source-entity-id","source_entity_id","data-product","data-metadata","data-meta"];var DATASET_KEYS=["productId","productid","product_id","sourceEntityId","sourceentityid","source_entity_id","product","metadata","meta"];function readProductId(value){if(typeof value!=="string"||value.length===0)return null;if(/^[0-9]{6,}$/.test(value))return value;var match=value.match(/(?:product(?:_|-)?id|source(?:_|-)?entity(?:_|-)?id)["'=:\s]+([0-9]{6,})/i);return match?match[1]:null}function extractProductId(start){for(var node=start;node&&node!==document.body;node=node.parentElement){for(var i=0;i<ATTR_NAMES.length;i++){var attrValue=node.getAttribute&&node.getAttribute(ATTR_NAMES[i]);var attrProductId=readProductId(attrValue);if(attrProductId)return attrProductId}var dataset=node.dataset||null;if(dataset){for(var j=0;j<DATASET_KEYS.length;j++){var dataValue=dataset[DATASET_KEYS[j]];var dataProductId=readProductId(dataValue);if(dataProductId)return dataProductId}}}return null}function isInlineMediaSlotElement(node){return !!(node&&node.getAttribute&&node.getAttribute("data-clippy-inline-media-slot")!==null)}function findInlineMediaSlot(start){for(var node=start;node&&node!==document.body;node=node.parentElement){if(isInlineMediaSlotElement(node))return node}return null}function readInlineMediaUrl(node){if(!node)return null;return node.getAttribute&&((node.getAttribute("data-clippy-inline-media-url")||node.getAttribute("data-url")||node.getAttribute("data_url")))||node.href||null}function stripHash(url){return String(url).replace(/#.*$/,"")}function urlsMatch(a,b){if(!a||!b)return false;try{return stripHash(new URL(a,loc).href)===stripHash(new URL(b,loc).href)}catch(_){return stripHash(a)===stripHash(b)}}function isFirstPartyReelUrl(value){try{var url=new URL(value,loc);if(url.protocol!=="https:")return false;var host=url.hostname.toLowerCase();var supported=host==="instagram.com"||host.endsWith(".instagram.com")||host==="facebook.com"||host.endsWith(".facebook.com");return supported&&/\/reels?\//i.test(url.pathname)}catch(_){return false}}function isInlineMediaUrlClick(node,href){var slot=findInlineMediaSlot(node);if(!slot)return false;var slotUrl=readInlineMediaUrl(slot);if(slotUrl)return urlsMatch(href,slotUrl);return isFirstPartyReelUrl(href)}function findDataHref(start){for(var node=start;node&&node!==document.body;node=node.parentElement){if(node.getAttribute){var href=node.getAttribute("data-href")||node.getAttribute("data-url");if(href)return{href:href,node:node}}}return null}var nativeOpen=window.open;window.open=function(url){if(parent!==window&&typeof url==="string"&&/^https?:\/\//.test(url)){parent.postMessage({type:"ecto:usercontent-link-click",href:url},"*");return null}return nativeOpen?nativeOpen.apply(window,arguments):null};document.addEventListener("click",function(e){var target=e.target instanceof Element?e.target:null;if(!target)return;if(parent===window)return;var a=target.closest?target.closest("a[href]"):null;if(a&&a.href&&/^https?:\/\//.test(a.href)&&a.href.replace(/#.*$/,"")!==loc){if(isInlineMediaUrlClick(a,a.href))return;var productId=extractProductId(target)||extractProductId(a);if(productId){e.preventDefault();parent.postMessage({type:"ecto-artifact-link-click",productId:productId},"*");return}e.preventDefault();parent.postMessage({type:"ecto:usercontent-link-click",href:a.href},"*");return}var dataHref=findDataHref(target);if(dataHref&&/^https?:\/\//.test(dataHref.href)&&dataHref.href.replace(/#.*$/,"")!==loc){if(isInlineMediaUrlClick(dataHref.node,dataHref.href))return;e.preventDefault();parent.postMessage({type:"ecto:usercontent-link-click",href:dataHref.href},"*")}},true)})();</script><script>(function(){var FOCUS_TYPE="ecto:artifact-focus-request";var CLOSE_TYPE="ecto:artifact-close-request";function focusArtifactDocument(){var body=document.body;if(!body)return;try{window.focus();}catch(e){}if(!body.hasAttribute("tabindex"))body.setAttribute("tabindex","-1");try{body.focus({preventScroll:true});}catch(e){try{body.focus();}catch(e2){}}}window.addEventListener("message",function(event){if(event.source!==window.parent)return;var data=event.data;if(!data||typeof data!=="object"||data.type!==FOCUS_TYPE)return;if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",focusArtifactDocument,{once:true});return;}focusArtifactDocument();});window.addEventListener("keydown",function(event){if(event.key!=="Escape")return;window.setTimeout(function(){if(event.defaultPrevented)return;window.parent.postMessage({type:CLOSE_TYPE},"*");},0);});})();</script></body>
 </html>
